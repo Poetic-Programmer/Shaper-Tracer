@@ -23,7 +23,9 @@ namespace Shaper_Tracer
             graphics = DrawPanel.CreateGraphics();
             pen = new BasicPen(graphics);
             drawSurface = new DrawSurface(DrawPanel);
-            drawCircle = new DrawCircle(drawSurface.CentrePoint);
+
+            Circle circle = new Circle(new Vector2(100, 200), 100);
+            drawCircle = new DrawCircle(circle);
         }
 
         private void DrawPanel_MouseMove(object sender, MouseEventArgs e)

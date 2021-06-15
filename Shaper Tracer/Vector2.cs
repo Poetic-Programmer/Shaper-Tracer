@@ -11,6 +11,11 @@ namespace Shaper_Tracer
         public float x;
         public float y;
 
+        public Vector2()
+        {
+            x = 0;
+            y = 0;
+        }
         public Vector2(float x, float y)
         {
             this.x = x;

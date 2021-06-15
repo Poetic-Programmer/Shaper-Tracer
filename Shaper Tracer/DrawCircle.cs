@@ -9,38 +9,37 @@ namespace Shaper_Tracer
 {
     class DrawCircle
     {
-        float angleInRadians;
-        float radius;
-        Point Center;
-        public DrawCircle(Point Center)
+        private Circle circle;
+        float rotationPointRotationInRadians;
+        
+        public DrawCircle(Circle circle)
         {
-            angleInRadians = 0;
-            radius = 100;
-            this.Center = Center;
+            this.circle = circle;
+            rotationPointRotationInRadians = 0;
         }
 
         public void Draw(Point centerOfCircle, Graphics graphics, Pen pen)
         {
-            foreach(Point p in Draw())
+            foreach(Vector2 position in Draw())
             {
-                graphics.DrawEllipse(pen, p.X, p.Y, radius, radius);
+                graphics.DrawEllipse(pen, position.x, position.y, circle.Radius, circle.Radius);
                 System.Threading.Thread.Sleep(10);
             }
         }
 
-        private IEnumerable<Point> Draw()
+        private IEnumerable<Vector2> Draw()
         {
-            var nextPoint = new Point();
-            angleInRadians = 0;
+            var nextPoint = new Vector2();
+            rotationPointRotationInRadians = 0;
             
-            while(angleInRadians <= (2 * Math.PI))
+            while(rotationPointRotationInRadians <= (2 * Math.PI))
             {
-                var x = Center.X + Math.Cos(angleInRadians) * radius;
-                var y = Center.Y + Math.Sin(angleInRadians) * radius;
+                var x = (float)(circle.CenterPosition.x + Math.Cos(rotationPointRotationInRadians) * circle.Radius);
+                var y = (float)(circle.CenterPosition.y + Math.Sin(rotationPointRotationInRadians) * circle.Radius);
 
-                nextPoint = new Point((int)x, (int)y);
+                nextPoint = new Vector2(x, y);
 
-                angleInRadians += 0.1f;
+                rotationPointRotationInRadians += 0.1f;
                 yield return nextPoint;
             }
 
