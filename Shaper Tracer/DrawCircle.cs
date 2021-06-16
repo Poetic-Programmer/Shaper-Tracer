@@ -42,9 +42,6 @@ namespace Shaper_Tracer
                 rotationPointRotationInRadians += 0.1f;
                 yield return nextPoint;
             }
-
-
-            yield return nextPoint;
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Shaper_Tracer
         BasicPen pen;
         DrawSurface drawSurface;
         DrawCircle drawCircle;
+        TraceSquare traceSquare;
         public MainForm()
         {
             InitializeComponent();
@@ -26,6 +27,8 @@ namespace Shaper_Tracer
 
             Circle circle = new Circle(new Vector2(100, 200), 100);
             drawCircle = new DrawCircle(circle);
+
+            traceSquare = new TraceSquare(new Square(new Vector2(100, 100), 100));
         }
 
         private void DrawPanel_MouseMove(object sender, MouseEventArgs e)
@@ -35,7 +38,8 @@ namespace Shaper_Tracer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            drawCircle.Draw(drawSurface.CentrePoint, graphics, pen.pen);
+            //drawCircle.Draw(drawSurface.CentrePoint, graphics, pen.pen);
+            traceSquare.Draw(graphics, pen.pen);
         }
 
         private void ClearCanvasButton_Click(object sender, EventArgs e)
