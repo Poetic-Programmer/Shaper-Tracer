@@ -10,9 +10,12 @@ namespace Shaper_Tracer
     class DrawSurface
     {
         public readonly Point CentrePoint;
+        public readonly Color StartColour;
+
         public DrawSurface(Panel panel)
         {
             CentrePoint = GetCentrePoint(panel);
+            StartColour = panel.BackColor;
         }
 
         private Point GetCentrePoint(Panel panel)

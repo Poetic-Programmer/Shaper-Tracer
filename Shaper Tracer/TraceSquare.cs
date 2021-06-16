@@ -8,12 +8,10 @@ namespace Shaper_Tracer
 {
     class TraceSquare
     {
-        private Square square;
         List<Vector2> cornerPointOnSquare;
 
         public TraceSquare(Square square)
         {
-            this.square = square;
             cornerPointOnSquare = GetCornerPointsOfSquare(square);
         }
 

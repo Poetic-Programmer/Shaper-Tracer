@@ -44,7 +44,7 @@ namespace Shaper_Tracer
 
         private void ClearCanvasButton_Click(object sender, EventArgs e)
         {
-            graphics.Clear(Color.AliceBlue);
+            graphics.Clear(drawSurface.StartColour);
         }
     }
 }
