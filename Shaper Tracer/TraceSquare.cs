@@ -9,9 +9,18 @@ namespace Shaper_Tracer
     class TraceSquare : ShapeTrace
     {
         List<Vector2> cornerPointOnSquare;
-
+        Square square;
+        string name;
         public TraceSquare(Square square)
         {
+            this.square = square;
+            cornerPointOnSquare = GetCornerPointsOfSquare(square);
+        }
+
+        public TraceSquare(Square square, string name)
+        {
+            this.square = square;
+            this.name = name;
             cornerPointOnSquare = GetCornerPointsOfSquare(square);
         }
 
@@ -25,11 +34,15 @@ namespace Shaper_Tracer
             return points;
         }
 
+        public override string Name()
+        {
+            return name;
+        }
+
         public override Vector2 Trace(Graphics graphics, Pen pen)
         {
             foreach (Vector2 position in GetPointAround(new Vector2()))
             {
-                
                 return position;
             }
             return null;
@@ -37,10 +50,13 @@ namespace Shaper_Tracer
 
         public override IEnumerable<Vector2> GetPointAround(Vector2 point)
         {
-            var currentPoint = cornerPointOnSquare[0];
+            var offsetSquare = new Square(point, square.Dimension);
+            var offsetPointsOfSquare = GetCornerPointsOfSquare(offsetSquare);
+
+            var currentPoint = offsetPointsOfSquare[0];
             var timer = 0.0f;
 
-            var numberOfPoints = cornerPointOnSquare.Count;
+            var numberOfPoints = offsetPointsOfSquare.Count;
             var currentPointIndex = 0;
 
             while(currentPointIndex < numberOfPoints)
@@ -50,12 +66,12 @@ namespace Shaper_Tracer
                     if (currentPointIndex == (numberOfPoints-1))
                     {
                         currentPoint = MathUtilities.Lerp(
-                            cornerPointOnSquare[currentPointIndex], cornerPointOnSquare[0], timer);
+                            offsetPointsOfSquare[currentPointIndex], offsetPointsOfSquare[0], timer);
                     }
                     else
                     {
-                        currentPoint = MathUtilities.Lerp(cornerPointOnSquare[currentPointIndex],
-                            cornerPointOnSquare[currentPointIndex+1], timer);     
+                        currentPoint = MathUtilities.Lerp(offsetPointsOfSquare[currentPointIndex],
+                            offsetPointsOfSquare[currentPointIndex+1], timer);     
                     }
                     yield return currentPoint;
                     timer += 0.1f;

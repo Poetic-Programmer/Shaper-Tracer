@@ -11,5 +11,6 @@ namespace Shaper_Tracer
     {
         public abstract Vector2 Trace(Graphics graphics, Pen pen);
         public abstract IEnumerable<Vector2> GetPointAround(Vector2 point);
+        public abstract string Name();
     }
 }

@@ -22,6 +22,11 @@ namespace Shaper_Tracer
             this.y = y;
         }
 
+        public override string ToString()
+        {
+            return string.Format("Vector2 [{0}, {1}]", x, y);
+        }
+
         public static Vector2 operator *(Vector2 a, float scalar)
             => new Vector2(a.x * scalar, a.y * scalar);
 

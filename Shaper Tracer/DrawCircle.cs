@@ -18,6 +18,11 @@ namespace Shaper_Tracer
             rotationPointRotationInRadians = 0;
         }
 
+        public override string Name()
+        {
+            return "";
+        }
+
         public override Vector2 Trace(Graphics graphics, Pen pen)
         {
             foreach (Vector2 position in GetPointAround(new Vector2()))

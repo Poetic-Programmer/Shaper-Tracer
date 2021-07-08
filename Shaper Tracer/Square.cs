@@ -9,19 +9,20 @@ namespace Shaper_Tracer
     class Square
     {
         private Vector2 CentrePosition;
-        private float dimension;
+        public readonly float Dimension;
+
         public Square(Vector2 CentrePosition, float dimension)
         {
             this.CentrePosition = CentrePosition;
-            this.dimension = dimension;
+            this.Dimension = dimension;
         }
 
         public Vector2 TopLeft
         {
             get {
                 return new Vector2(
-                    CentrePosition.x - (dimension / 2),
-                    CentrePosition.y + (dimension / 2)
+                    CentrePosition.x - (Dimension / 2),
+                    CentrePosition.y + (Dimension / 2)
               );
             }
             private set { }
@@ -31,8 +32,8 @@ namespace Shaper_Tracer
             get
             {
                 return new Vector2(
-                    CentrePosition.x + (dimension / 2),
-                    CentrePosition.y + (dimension / 2)
+                    CentrePosition.x + (Dimension / 2),
+                    CentrePosition.y + (Dimension / 2)
               );
             }
             private set { }
@@ -42,8 +43,8 @@ namespace Shaper_Tracer
             get
             {
                 return new Vector2(
-                    CentrePosition.x + (dimension / 2),
-                    CentrePosition.y - (dimension / 2)
+                    CentrePosition.x + (Dimension / 2),
+                    CentrePosition.y - (Dimension / 2)
               );
             }
             private set { }
@@ -53,8 +54,8 @@ namespace Shaper_Tracer
             get
             {
                 return new Vector2(
-                    CentrePosition.x - (dimension / 2),
-                    CentrePosition.y - (dimension / 2)
+                    CentrePosition.x - (Dimension / 2),
+                    CentrePosition.y - (Dimension / 2)
               );
             }
             private set { }
