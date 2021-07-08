@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Shaper_Tracer
 {
-    class DrawCircle
+    class DrawCircle : ShapeTrace
     {
         private Circle circle;
         float rotationPointRotationInRadians;
@@ -18,16 +18,26 @@ namespace Shaper_Tracer
             rotationPointRotationInRadians = 0;
         }
 
+        public override Vector2 Trace(Graphics graphics, Pen pen)
+        {
+            foreach (Vector2 position in GetPointAround(new Vector2()))
+            {
+                graphics.DrawEllipse(pen, position.x, position.y, 10, 10);
+                return position;
+            }
+            return null;
+        }
+
         public void Draw(Point centerOfCircle, Graphics graphics, Pen pen)
         {
-            foreach(Vector2 position in Draw())
+            foreach(Vector2 position in GetPointAround(new Vector2()))
             {
                 graphics.DrawEllipse(pen, position.x, position.y, circle.Radius, circle.Radius);
                 System.Threading.Thread.Sleep(10);
             }
         }
 
-        private IEnumerable<Vector2> Draw()
+        public override IEnumerable<Vector2> GetPointAround(Vector2 position)
         {
             var nextPoint = new Vector2();
             rotationPointRotationInRadians = 0;

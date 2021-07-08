@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 namespace Shaper_Tracer
 {
-    class TraceSquare
+    class TraceSquare : ShapeTrace
     {
         List<Vector2> cornerPointOnSquare;
 
@@ -25,16 +25,17 @@ namespace Shaper_Tracer
             return points;
         }
 
-        public void Draw(Graphics graphics, Pen pen)
+        public override Vector2 Trace(Graphics graphics, Pen pen)
         {
-            foreach (Vector2 position in GetPointAlong())
+            foreach (Vector2 position in GetPointAround(new Vector2()))
             {
-                graphics.DrawEllipse(pen, position.x, position.y, 10, 10);
-                System.Threading.Thread.Sleep(10);
+                
+                return position;
             }
+            return null;
         }
 
-        private IEnumerable<Vector2> GetPointAlong()
+        public override IEnumerable<Vector2> GetPointAround(Vector2 point)
         {
             var currentPoint = cornerPointOnSquare[0];
             var timer = 0.0f;

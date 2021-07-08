@@ -30,5 +30,8 @@ namespace Shaper_Tracer
 
         public static Vector2 operator +(Vector2 left, Vector2 right)
             => new Vector2(left.x + right.x, left.y + right.y);
+
+        public static Vector2 operator -(Vector2 left, Vector2 right)
+            => new Vector2(left.x - right.x, left.y - right.y);
     }
 }

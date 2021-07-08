@@ -66,6 +66,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quad.cs" />
+    <Compile Include="ShapeTrace.cs" />
+    <Compile Include="ShapeTracer.cs" />
     <Compile Include="Square.cs" />
     <Compile Include="TraceSquare.cs" />
     <Compile Include="Vector2.cs" />
