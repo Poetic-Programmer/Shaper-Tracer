@@ -36,15 +36,14 @@ namespace Shaper_Tracer
             //pen.DrawAt(e.Location);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //drawCircle.Draw(drawSurface.CentrePoint, graphics, pen.pen);
-            traceSquare.Draw(graphics, pen.pen);
-        }
-
         private void ClearCanvasButton_Click(object sender, EventArgs e)
         {
             graphics.Clear(drawSurface.StartColour);
+        }
+
+        private void RunButton_Click(object sender, EventArgs e)
+        {
+            traceSquare.Draw(graphics, pen.pen);
         }
     }
 }

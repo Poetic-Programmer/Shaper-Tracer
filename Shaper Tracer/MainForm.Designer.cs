@@ -31,10 +31,10 @@
             this.DrawPanel = new System.Windows.Forms.Panel();
             this.ShapeSelectPanel = new System.Windows.Forms.Panel();
             this.OptionsPanel = new System.Windows.Forms.Panel();
+            this.ClearCanvasButton = new System.Windows.Forms.Button();
+            this.RunButton = new System.Windows.Forms.Button();
             this.TitlePanel = new System.Windows.Forms.Panel();
             this.Title = new System.Windows.Forms.Label();
-            this.RunButton = new System.Windows.Forms.Button();
-            this.ClearCanvasButton = new System.Windows.Forms.Button();
             this.OptionsPanel.SuspendLayout();
             this.TitlePanel.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +64,26 @@
             this.OptionsPanel.Size = new System.Drawing.Size(324, 377);
             this.OptionsPanel.TabIndex = 2;
             // 
+            // ClearCanvasButton
+            // 
+            this.ClearCanvasButton.Location = new System.Drawing.Point(114, 103);
+            this.ClearCanvasButton.Name = "ClearCanvasButton";
+            this.ClearCanvasButton.Size = new System.Drawing.Size(75, 23);
+            this.ClearCanvasButton.TabIndex = 1;
+            this.ClearCanvasButton.Text = "Clear";
+            this.ClearCanvasButton.UseVisualStyleBackColor = true;
+            this.ClearCanvasButton.Click += new System.EventHandler(this.ClearCanvasButton_Click);
+            // 
+            // RunButton
+            // 
+            this.RunButton.Location = new System.Drawing.Point(114, 74);
+            this.RunButton.Name = "RunButton";
+            this.RunButton.Size = new System.Drawing.Size(75, 23);
+            this.RunButton.TabIndex = 0;
+            this.RunButton.Text = "Run";
+            this.RunButton.UseVisualStyleBackColor = true;
+            this.RunButton.Click += new System.EventHandler(this.RunButton_Click);
+            // 
             // TitlePanel
             // 
             this.TitlePanel.BackColor = System.Drawing.SystemColors.ButtonShadow;
@@ -83,26 +103,6 @@
             this.Title.TabIndex = 0;
             this.Title.Text = "Shape Tracer";
             this.Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // RunButton
-            // 
-            this.RunButton.Location = new System.Drawing.Point(114, 74);
-            this.RunButton.Name = "RunButton";
-            this.RunButton.Size = new System.Drawing.Size(75, 23);
-            this.RunButton.TabIndex = 0;
-            this.RunButton.Text = "Run";
-            this.RunButton.UseVisualStyleBackColor = true;
-            this.RunButton.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // ClearCanvasButton
-            // 
-            this.ClearCanvasButton.Location = new System.Drawing.Point(114, 103);
-            this.ClearCanvasButton.Name = "ClearCanvasButton";
-            this.ClearCanvasButton.Size = new System.Drawing.Size(75, 23);
-            this.ClearCanvasButton.TabIndex = 1;
-            this.ClearCanvasButton.Text = "Clear";
-            this.ClearCanvasButton.UseVisualStyleBackColor = true;
-            this.ClearCanvasButton.Click += new System.EventHandler(this.ClearCanvasButton_Click);
             // 
             // MainForm
             // 
