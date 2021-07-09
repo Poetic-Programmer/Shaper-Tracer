@@ -38,22 +38,20 @@ namespace Shaper_Tracer
 
         private void Trace(Graphics graphics, BasicPen pen, int index, Vector2 position)
         {
-            if(index >= 0)
-            {       
+            if (index >= 0)
+            {
                 var current = tracers[index];
-
                 index = index - 1;
 
                 foreach (Vector2 point in current.GetPointAround(position))
                 {
-                    Trace(graphics, pen, index, point); 
-                    
-
-
+                    if (index < 0)
+                    {
                         pen.DrawAt(point);
-                    
-               
-                         
+                        Thread.Sleep(1);
+                    }
+
+                    Trace(graphics, pen, index, point);
                 }
             }
         }

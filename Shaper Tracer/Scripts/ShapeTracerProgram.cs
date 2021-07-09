@@ -41,9 +41,9 @@ namespace Shaper_Tracer
             var center = drawSurface.CentrePoint;
 
             //tracers.Add(new TraceSquare(new Square(new Vector2(0, center.Y), 25)));
-            tracers.Add(new DrawCircle(new Circle(new Vector2(0, 0), 50)));
-            tracers.Add(new TraceSquare(new Square(new Vector2(0, 0), 100)));
-            //tracers.Add(new DrawCircle(new Circle(new Vector2(), 100)));
+            //tracers.Add(new DrawCircle(new Circle(new Vector2(0, 0), 50)));
+            tracers.Add(new TraceSquare(new Square(new Vector2(0, 0), 50)));
+            tracers.Add(new DrawCircle(new Circle(new Vector2(), 25)));
             //tracers.Add(new TraceSquare(new Square(new Vector2(center.X, center.Y), 50)));
             
 
