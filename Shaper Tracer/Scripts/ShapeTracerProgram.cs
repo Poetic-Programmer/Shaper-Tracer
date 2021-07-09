@@ -31,7 +31,7 @@ namespace Shaper_Tracer
 
         public void RunTrace(Graphics graphics)
         {
-            tracer.Trace(graphics, pen.pen);
+            tracer.Trace(graphics, pen);
         }
 
         private List<ShapeTrace> SetTracers()
@@ -39,9 +39,13 @@ namespace Shaper_Tracer
             var tracers = new List<ShapeTrace>();
 
             var center = drawSurface.CentrePoint;
+
+            //tracers.Add(new TraceSquare(new Square(new Vector2(0, center.Y), 25)));
+            tracers.Add(new DrawCircle(new Circle(new Vector2(0, 0), 50)));
             tracers.Add(new TraceSquare(new Square(new Vector2(0, 0), 100)));
-            tracers.Add(new TraceSquare(new Square(new Vector2(0, 0), 100)));
-            tracers.Add(new TraceSquare(new Square(new Vector2(center.X, center.Y), 20)));
+            //tracers.Add(new DrawCircle(new Circle(new Vector2(), 100)));
+            //tracers.Add(new TraceSquare(new Square(new Vector2(center.X, center.Y), 50)));
+            
 
             return tracers;
         }

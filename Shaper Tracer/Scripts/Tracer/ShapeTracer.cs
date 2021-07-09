@@ -29,25 +29,31 @@ namespace Shaper_Tracer
             tracers.Add(tracer);
         }
 
-        public void Trace(Graphics graphics, Pen pen)
+        public void Trace(Graphics graphics, BasicPen pen)
         {
             var tracerCopy = new List<ShapeTrace>(tracers);
-            Trace(graphics, pen, tracerCopy, center);
+            var index = tracers.Count - 1;
+            Trace(graphics, pen, index, center);
         }
 
-        private void Trace(Graphics graphics, Pen pen, List<ShapeTrace> tracer, Vector2 position)
+        private void Trace(Graphics graphics, BasicPen pen, int index, Vector2 position)
         {
-            while(tracer.Count > 0)
-            {
-                var lastElementIndex = tracer.Count - 1;
-                var current = tracer[lastElementIndex];
-                tracer.RemoveAt(lastElementIndex);
+            if(index >= 0)
+            {       
+                var current = tracers[index];
+
+                index = index - 1;
 
                 foreach (Vector2 point in current.GetPointAround(position))
                 {
-                    Trace(graphics, pen, tracer, point);
-                    graphics.DrawEllipse(pen, point.x, point.y, 10, 10);
-                    Thread.Sleep(1);
+                    Trace(graphics, pen, index, point); 
+                    
+
+
+                        pen.DrawAt(point);
+                    
+               
+                         
                 }
             }
         }

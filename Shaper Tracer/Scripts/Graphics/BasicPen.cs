@@ -9,16 +9,17 @@ namespace Shaper_Tracer
     class BasicPen
     {
         private readonly Graphics graphics;
-        public readonly Pen pen;
+        private readonly Pen pen;
+
         public BasicPen(Graphics graphics)
         {
             this.graphics = graphics;
             pen = new Pen(Color.Black);
         }
 
-        public void DrawAt(Point point)
+        public void DrawAt(Vector2 position)
         {
-            graphics.DrawEllipse(pen, point.X, point.Y, 10, 10);
+            graphics.DrawEllipse(pen, position.x, position.y, 2, 2);
         }
     }
 }
