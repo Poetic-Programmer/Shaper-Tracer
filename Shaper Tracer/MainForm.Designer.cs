@@ -42,7 +42,7 @@
             // DrawPanel
             // 
             this.DrawPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.DrawPanel.Location = new System.Drawing.Point(342, 174);
+            this.DrawPanel.Location = new System.Drawing.Point(347, 174);
             this.DrawPanel.Name = "DrawPanel";
             this.DrawPanel.Size = new System.Drawing.Size(610, 377);
             this.DrawPanel.TabIndex = 0;
@@ -109,10 +109,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(969, 563);
+            this.Controls.Add(this.DrawPanel);
             this.Controls.Add(this.TitlePanel);
             this.Controls.Add(this.OptionsPanel);
             this.Controls.Add(this.ShapeSelectPanel);
-            this.Controls.Add(this.DrawPanel);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.OptionsPanel.ResumeLayout(false);

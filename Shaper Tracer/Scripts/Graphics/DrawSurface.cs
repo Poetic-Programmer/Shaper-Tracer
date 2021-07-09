@@ -24,7 +24,7 @@ namespace Shaper_Tracer
             var halfWidth = panel.Width / 2;
             var halfHeight = panel.Height / 2;
             
-            return new Point(topleft.X, topleft.Y);
+            return new Point(halfWidth, halfHeight);
         }
     }
 }

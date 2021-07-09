@@ -37,21 +37,16 @@ namespace Shaper_Tracer
 
         private void Trace(Graphics graphics, Pen pen, List<ShapeTrace> tracer, Vector2 position)
         {
-            while(tracer.Count > 1)
+            while(tracer.Count > 0)
             {
                 var lastElementIndex = tracer.Count - 1;
                 var current = tracer[lastElementIndex];
-                var previous = tracer[lastElementIndex - 1];      
                 tracer.RemoveAt(lastElementIndex);
 
-                foreach(Vector2 point in previous.GetPointAround(position))
+                foreach (Vector2 point in current.GetPointAround(position))
                 {
-                    Trace(graphics, pen, tracer, point); 
-                    
-                    foreach(Vector2 p in current.GetPointAround(point))
-                    {
-                        graphics.DrawEllipse(pen, p.x, p.y, 10, 5f);                    
-                    }
+                    Trace(graphics, pen, tracer, point);
+                    graphics.DrawEllipse(pen, point.x, point.y, 10, 10);
                     Thread.Sleep(1);
                 }
             }
