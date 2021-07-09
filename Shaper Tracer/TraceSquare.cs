@@ -10,17 +10,10 @@ namespace Shaper_Tracer
     {
         List<Vector2> cornerPointOnSquare;
         Square square;
-        string name;
+
         public TraceSquare(Square square)
         {
             this.square = square;
-            cornerPointOnSquare = GetCornerPointsOfSquare(square);
-        }
-
-        public TraceSquare(Square square, string name)
-        {
-            this.square = square;
-            this.name = name;
             cornerPointOnSquare = GetCornerPointsOfSquare(square);
         }
 
@@ -32,11 +25,6 @@ namespace Shaper_Tracer
             points.Add(square.BottomRight);
             points.Add(square.BottomLeft);
             return points;
-        }
-
-        public override string Name()
-        {
-            return name;
         }
 
         public override Vector2 Trace(Graphics graphics, Pen pen)

@@ -18,16 +18,11 @@ namespace Shaper_Tracer
             rotationPointRotationInRadians = 0;
         }
 
-        public override string Name()
-        {
-            return "";
-        }
-
         public override Vector2 Trace(Graphics graphics, Pen pen)
         {
             foreach (Vector2 position in GetPointAround(new Vector2()))
             {
-                graphics.DrawEllipse(pen, position.x, position.y, 10, 10);
+                graphics.DrawEllipse(pen, position.x, position.y, 5, 5);
                 return position;
             }
             return null;
