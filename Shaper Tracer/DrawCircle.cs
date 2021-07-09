@@ -28,15 +28,6 @@ namespace Shaper_Tracer
             return null;
         }
 
-        public void Draw(Point centerOfCircle, Graphics graphics, Pen pen)
-        {
-            foreach(Vector2 position in GetPointAround(new Vector2()))
-            {
-                graphics.DrawEllipse(pen, position.x, position.y, circle.Radius, circle.Radius);
-                System.Threading.Thread.Sleep(10);
-            }
-        }
-
         public override IEnumerable<Vector2> GetPointAround(Vector2 position)
         {
             var nextPoint = new Vector2();
@@ -47,7 +38,7 @@ namespace Shaper_Tracer
                 var x = (float)(circle.CenterPosition.x + Math.Cos(rotationPointRotationInRadians) * circle.Radius);
                 var y = (float)(circle.CenterPosition.y + Math.Sin(rotationPointRotationInRadians) * circle.Radius);
 
-                nextPoint = new Vector2(x, y);
+                nextPoint = new Vector2(x, y) + position;
 
                 rotationPointRotationInRadians += 0.1f;
                 yield return nextPoint;

@@ -31,8 +31,9 @@ namespace Shaper_Tracer
             drawCircle = new DrawCircle(circle);
 
             tracers = new List<ShapeTrace>();
-            tracers.Add(new DrawCircle(new Circle(new Vector2(100, 200), 10)));
-            tracers.Add(new TraceSquare(new Square(new Vector2(100, 100), 100)));
+            tracers.Add(new DrawCircle(new Circle(new Vector2(10, 20), 100)));
+            tracers.Add(new DrawCircle(new Circle(new Vector2(10, 20), 100)));
+            //tracers.Add(new TraceSquare(new Square(new Vector2(100, 100), 100)));
             tracer = new ShapeTracer(tracers);
         }
 
