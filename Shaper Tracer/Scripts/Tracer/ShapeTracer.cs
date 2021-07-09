@@ -33,10 +33,14 @@ namespace Shaper_Tracer
         {
             var tracerCopy = new List<ShapeTrace>(tracers);
             var index = tracers.Count - 1;
-            Trace(graphics, pen, index, center);
+
+            foreach(Vector2 position in Trace(index, center))
+            {
+                pen.DrawAt(position);
+            }
         }
 
-        private void Trace(Graphics graphics, BasicPen pen, int index, Vector2 position)
+        private IEnumerable<Vector2> Trace(int index, Vector2 position)
         {
             if (index >= 0)
             {
@@ -47,11 +51,13 @@ namespace Shaper_Tracer
                 {
                     if (index < 0)
                     {
-                        pen.DrawAt(point);
-                        Thread.Sleep(1);
+                        yield return point;
                     }
 
-                    Trace(graphics, pen, index, point);
+                    foreach(var rec in Trace(index, point))
+                    {
+                        yield return rec;
+                    }
                 }
             }
         }
